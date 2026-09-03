@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGallery Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand-area">
+        <img class="profile-picture" src="profile-picture.png" alt="CodeGallery profile">
+        <div class="brand">CodeGallery</div>
+    </div>
+    <nav id="top-nav" class="hidden">
+        <a id="home-nav-link" href="#welcome-panel">Home</a>
+        <a id="add-tutorial-nav-link" class="hidden" href="#add-tutorial">Add Tutorial</a>
+        <a id="add-content-link" class="hidden" href="#add-tutorial">Add Content</a>
+        <label id="management-language-control" class="management-language hidden">
+            Select Language
+            <select id="management-language-select" aria-label="Select tutorial language">
+                <option value="">Choose</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+                <option value="Python">Python</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="SQL">SQL</option>
+                <option value="AI">AI</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="TypeScript">TypeScript</option>
+                <option value="Go">Go</option>
+                <option value="Ruby">Ruby</option>
+                <option value="PHP">PHP</option>
+                <option value="Kotlin">Kotlin</option>
+                <option value="C++">C++</option>
+            </select>
+        </label>
+        <button id="signin-btn" class="btn secondary small">Sign In</button>
+        <button id="logout-btn" class="btn secondary small">Logout</button>
+    </nav>
+</header>
+
+<div id="language-menu" class="language-menu language-bar hidden">
+        <a href="#language-page" data-language="Java">Java</a>
+        <a href="#language-page" data-language="C#">C#</a>
+        <a href="#language-page" data-language="Python">Python</a>
+        <a href="#language-page" data-language="HTML">HTML</a>
+        <a href="#language-page" data-language="CSS">CSS</a>
+        <a href="#language-page" data-language="SQL">SQL</a>
+        <a href="#language-page" data-language="AI">AI</a>
+        <a id="selected-language" href="#language-page" data-language="JavaScript">JavaScript</a>
+        <select id="language-select" aria-label="Select a coding language">
+            <option value="">More Languages</option>
+            <option value="TypeScript">TypeScript</option>
+            <option value="Go">Go</option>
+            <option value="Ruby">Ruby</option>
+            <option value="PHP">PHP</option>
+            <option value="Kotlin">Kotlin</option>
+            <option value="C++">C++</option>
+        </select>
+</div>
+
+<div id="modification-bar" class="modification-bar hidden">
+    <button type="button" class="modification-tab active" data-tab="add">Add</button>
+    <button type="button" class="modification-tab" data-tab="edit">Edit</button>
+    <button type="button" class="modification-tab" data-tab="delete">Delete</button>
+    <span id="modification-message" class="modification-message"></span>
+</div>
+
+<main class="container">
+    <section id="language-page" class="panel language-page hidden">
+        <div class="panel-header">
+            <h2 id="language-page-title">Language Tutorial</h2>
+        </div>
+        <div class="language-page-layout">
+            <aside id="language-sidebar" class="language-sidebar" aria-label="Tutorial sections"></aside>
+            <article id="language-content" class="language-content"></article>
+        </div>
+        <button id="language-page-back" class="btn secondary small" type="button">Back</button>
+    </section>
+
+    <section id="welcome-panel" class="panel welcome-panel">
+        <div class="welcome-content">
+            <h1>Welcome to Code Gallery Tutorial</h1>
+            <p>Learn, explore, and manage Selenium tutorials in one place.</p>
+            <button id="get-started-btn" class="btn" type="button">Get Started</button>
+        </div>
+    </section>
+
+    <section id="login-panel" class="panel auth-panel">
+        <div class="panel-header">
+            <h2>Admin Login</h2>
+        </div>
+        <form id="login-form" class="tutorial-form">
+            <label>
+                Username
+                <input type="text" id="username" name="username" value="admin" required>
+            </label>
+            <label>
+                Password
+                <input type="password" id="password" name="password" value="admin123" required>
+            </label>
+            <button type="submit">Login</button>
+            <div class="auth-links">
+                <p class="hint auth-line">Don't have an account? <a href="#" class="text-link register-link">Register</a></p>
+                <a href="#" class="text-link small-link">Forgot username/password?</a>
+            </div>
+        </form>
+        <p class="hint">Demo credentials: admin / admin123</p>
+    </section>
+
+    <section id="register-panel" class="panel auth-panel hidden">
+        <div class="panel-header">
+            <h2>Create Account</h2>
+        </div>
+        <form id="register-form" class="tutorial-form">
+            <label>
+                First Name
+                <input type="text" id="first-name" name="firstName" required>
+            </label>
+            <label>
+                Last Name
+                <input type="text" id="last-name" name="lastName" required>
+            </label>
+            <label>
+                Email ID
+                <input type="email" id="email" name="email">
+            </label>
+            <label>
+                Mobile No
+                <input type="tel" id="mobile-no" name="mobileNo" placeholder="optional if email is provided">
+            </label>
+            <label>
+                Password
+                <input type="password" id="register-password" name="password" required>
+            </label>
+            <label>
+                Confirm Password
+                <input type="password" id="confirm-password" name="confirmPassword" required>
+            </label>
+            <label>
+                Role
+                <select id="register-role" name="role">
+                    <option value="ADMIN">Admin</option>
+                    <option value="CO_USER">Co-User</option>
+                    <option value="END_USER" selected>End User</option>
+                </select>
+            </label>
+            <button type="submit">Register</button>
+            <p class="hint auth-line">Already have an account? <a href="#" class="text-link login-link">Login</a></p>
+        </form>
+        <div id="register-message" class="auth-message"></div>
+    </section>
+
+    <div id="dashboard" class="hidden">
+        <section id="role-welcome" class="panel role-welcome">
+            <div class="panel-header">
+                <h2 id="role-welcome-title">Welcome</h2>
+            </div>
+            <p id="role-welcome-description"></p>
+        </section>
+
+        <section id="content-manager-header" class="panel content-manager-header hidden">
+            <h2 id="content-manager-title">Welcome to Language Content Page</h2>
+        </section>
+
+        <section class="panel modification-panel" id="add-tutorial">
+            <div class="panel-header">
+                <h2>Add New Tutorial</h2>
+            </div>
+            <form id="tutorial-form" class="tutorial-form">
+                <label>
+                    Title of Tutorial
+                    <input type="text" id="title" name="title" title="Enter the title of the tutorial" required>
+                </label>
+                <label>
+                    Level
+                    <select id="level" name="level" title="Select the tutorial difficulty level" required>
+                        <option value="" selected disabled>Select level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </label>
+                <label>
+                    Description
+                    <textarea id="content" name="content" title="Describe what learners will understand or build in this tutorial" rows="4" required></textarea>
+                </label>
+                <button type="submit">Save Tutorial</button>
+            </form>
+        </section>
+
+        <section class="panel modification-panel hidden" id="add-content">
+            <div class="panel-header">
+                <h2 id="add-content-title">Add Content</h2>
+            </div>
+            <form id="add-content-form" class="tutorial-form">
+                <label>Header<input id="content-header" type="text" required></label>
+                <label>Sub-header<input id="content-sub-header" type="text" required></label>
+                <label>Description<textarea id="content-description" rows="4" required></textarea></label>
+                <button type="submit">Save Content</button>
+            </form>
+        </section>
+
+        <section class="panel modification-panel hidden" id="edit-tutorial">
+            <div class="panel-header">
+                <h2>Edit Tutorial</h2>
+            </div>
+            <form id="edit-tutorial-form" class="tutorial-form">
+                <label>
+                    Select Tutorial
+                    <select id="edit-tutorial-select" required></select>
+                </label>
+                <label>
+                    Title of Tutorial
+                    <input type="text" id="edit-title" required>
+                </label>
+                <label>
+                    Level
+                    <select id="edit-level" required>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </label>
+                <label>
+                    Description
+                    <textarea id="edit-tutorial-description" rows="4" required></textarea>
+                </label>
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+
+        <section class="panel modification-panel hidden" id="edit-content">
+            <div class="panel-header">
+                <h2>Edit Content</h2>
+            </div>
+            <form id="edit-content-form" class="tutorial-form">
+                <label>Header<select id="edit-content-header" required></select></label>
+                <label>Header Text<input id="edit-content-header-text" type="text" required></label>
+                <label>Sub-header<select id="edit-content-sub-header" required></select></label>
+                <label>Sub-header Text<input id="edit-content-sub-header-text" type="text" required></label>
+                <label>Description<textarea id="edit-content-description" rows="4" required></textarea></label>
+                <button type="submit">Save Content Changes</button>
+            </form>
+        </section>
+
+        <section class="panel modification-panel hidden" id="delete-tutorial">
+            <div class="panel-header">
+                <h2>Delete Tutorial</h2>
+            </div>
+            <form id="delete-tutorial-form" class="tutorial-form">
+                <label>
+                    Select Tutorial
+                    <select id="delete-tutorial-select" required></select>
+                </label>
+                <button type="submit" class="btn danger">Delete Tutorial</button>
+            </form>
+        </section>
+
+        <section class="panel modification-panel hidden" id="delete-content">
+            <div class="panel-header">
+                <h2>Delete Content</h2>
+            </div>
+            <form id="delete-content-form" class="tutorial-form">
+                <label>Header<select id="delete-content-header" required></select></label>
+                <label>Sub-header<select id="delete-content-sub-header" required></select></label>
+                <label>Description<textarea id="delete-content-description" rows="4" readonly></textarea></label>
+                <button type="submit" class="btn danger">Delete Content</button>
+            </form>
+        </section>
+    </div>
+</main>
+
+<div id="confirmation-modal" class="confirmation-modal hidden" role="dialog" aria-modal="true" aria-labelledby="confirmation-title">
+    <div class="confirmation-card">
+        <h2 id="confirmation-title">Are you sure?</h2>
+        <p id="confirmation-message"></p>
+        <div class="confirmation-actions">
+            <button id="confirmation-cancel" class="btn secondary small" type="button">Cancel</button>
+            <button id="confirmation-accept" class="btn small" type="button">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 CodeGallery | Selenium with Java</p>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

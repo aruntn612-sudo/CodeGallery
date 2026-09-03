@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS selenium_tutorials;
+USE selenium_tutorials;
+
+CREATE TABLE IF NOT EXISTS tutorial (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100),
+  level VARCHAR(50),
+  content TEXT
+);
+
+CREATE TABLE IF NOT EXISTS app_user (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(50) NOT NULL
+);
